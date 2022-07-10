@@ -1,0 +1,47 @@
+.terminal {
+  min-height: 400px;
+  background-color: #000;
+  color: #4AF626;
+  padding: 10px 20px;
+}
+
+.terminal__line {
+  margin: 0;
+  padding: 0;
+}
+
+.terminal__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.terminal__branch {
+  color: blue;
+}
+
+.terminal__way {
+  color: yellow;
+}
+
+.terminal__command {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.terminal__date {
+  color: blue;
+}
+
+.terminal__sha {
+  color: yellow;
+}
+
+.terminal__message {
+  color: white;
+}
+
+.terminal__list-item {
+  margin-bottom: 16px;
+}
+

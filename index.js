@@ -1,9 +1,14 @@
 const URL = 'https://api.github.com/repos/eugenelanets/lanets/commits';
-const getUsefulCommitData = ({commit}) => ({
-  date: commit.author.date,
-  message: commit.message,
-  sha: commit.tree.sha,
-});
+const getUsefulCommitData = ({commit}) => {
+  const date = new Intl.DateTimeFormat('ru-RU')
+    .format(new Date(commit.author.date))
+
+  return {
+    date,
+    message: commit.message,
+    sha: commit.tree.sha,
+  }
+};
 
 const getAllCommits = async (url, changeState) => {
   try {
@@ -20,12 +25,32 @@ const getAllCommits = async (url, changeState) => {
 
 const createLi = (commit) => {
   const li = document.createElement('li');
-  li.append(`${commit.date} ${commit.message}`);
+  li.classList.add('terminal__list-item');
+
+  const firstLine = document.createElement('p');
+  firstLine.classList.add('terminal__line');
+
+  const dateNode = document.createElement('datetime');
+  dateNode.classList.add('terminal__date');
+  dateNode.append(commit.date);
+
+  const shaNode = document.createElement('span');
+  shaNode.classList.add('terminal__sha');
+  shaNode.append(`${commit.sha.slice(0,7)} `);
+
+  firstLine.append(shaNode, dateNode);
+
+  const commitMessageNode = document.createElement('p');
+  commitMessageNode.classList.add('terminal__message', 'terminal__line');
+  commitMessageNode.append(commit.message);
+
+  li.append(firstLine, commitMessageNode);
   return li;
 }
 
 const createList = (commits) => {
   const ul = document.createElement('ul');
+  ul.classList.add('terminal__list');
   ul.append(...commits.map(createLi));
 
   return ul;

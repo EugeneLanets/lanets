@@ -68,7 +68,14 @@
   <div class="container">
     <h2>GIT log</h2>
     <div class="terminal">
-      <p>eugene@lanets.me > </p>
+      <p class="terminal__line">
+        eugene@lanets.me
+        <span class="terminal__way">~</span>
+        <span class="terminal__branch">(main)</span>
+      </p>
+      <p class="terminal__line terminal__command">
+        $ git log --pretty=format:"%C(yellow)%h%n%C(blue)%ad%n%s%n" --date=format:"%d/%m/%Y"
+      </p>
       <div class="loading">
         <img src="./loading.gif" alt="Loading">
       </div>
