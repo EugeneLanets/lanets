@@ -1,8 +1,10 @@
 .terminal {
-  min-height: 400px;
-  background-color: #000;
-  color: #4AF626;
+  height: 400px;
+  background-color: var(--terminalBgColor);
+  color: var(--terminalFontColor);
   padding: 10px 20px;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .terminal__line {
@@ -17,28 +19,28 @@
 }
 
 .terminal__branch {
-  color: blue;
+  color: var(--terminalBranchColor);
 }
 
 .terminal__way {
-  color: yellow;
+  color: var(--terminalWayColor);
 }
 
 .terminal__command {
-  color: #fff;
+  color: var(--terminalCommandColor);
   margin-bottom: 16px;
 }
 
 .terminal__date {
-  color: blue;
+  color: var(--terminalBgColor);
 }
 
 .terminal__sha {
-  color: yellow;
+  color: var(--terminalWayColor);
 }
 
 .terminal__message {
-  color: white;
+  color: var(--terminalCommandColor);
 }
 
 .terminal__list-item {

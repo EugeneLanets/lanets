@@ -1,3 +1,129 @@
+.loading {
+  --sin60: 0.86602540378;
+  --cos60: 0.5;
+  --bigRadius: 90px;
+  --smallRadius: 6px;
+  --oneCoord: calc(var(--cos60) * var(--bigRadius) - var(--smallRadius));
+  --anotherCoord: calc(var(--bigRadius) - var(--sin60) * var(--bigRadius) - var(--smallRadius));
+  --quarterOneCoord: calc(0px - var(--smallRadius));
+  --quarterAnotherCoord: calc(var(--bigRadius) - var(--smallRadius));
+  --scaleCoefficient: 2.5;
+  --animationDuration: 2s;
+  --animationDelayStep: calc(var(--animationDuration) / 12);
+  --circleColor: var(--terminalFontColor, #fff);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .loading_hidden {
   display: none;
+}
+
+.loading__orbit {
+  margin: auto;
+  width: calc(2 * var(--bigRadius));
+  height: calc(2 * var(--bigRadius));
+  position: relative;
+}
+.loading__circle {
+  background-color: var(--circleColor);
+  border-radius: 50%;
+  width: calc(2 * var(--smallRadius));
+  height: calc(2 * var(--smallRadius));
+  position: absolute;
+  transition: 0.5s;
+  animation-name: smallBig;
+  animation-duration: var(--animationDuration);
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+
+.loading__circle_position_one {
+   top: var(--quarterOneCoord);
+   left: var(--quarterAnotherCoord);
+   animation-delay: calc(var(--animationDelayStep) * 1);
+ }
+
+.loading__circle_position_two {
+   right: var(--oneCoord);
+   top: var(--anotherCoord);
+   animation-delay: calc(var(--animationDelayStep) * 2);
+ }
+
+.loading__circle_position_three {
+   top: var(--oneCoord);
+   right: var(--anotherCoord);
+   animation-delay: calc(var(--animationDelayStep) * 3);
+ }
+
+.loading__circle_position_four {
+   right: var(--quarterOneCoord);
+   top: var(--quarterAnotherCoord);;
+   animation-delay: calc(var(--animationDelayStep) * 4);
+ }
+
+.loading__circle_position_five {
+   right: var(--anotherCoord);
+   bottom: var(--oneCoord);
+   animation-delay: calc(var(--animationDelayStep) * 5);
+ }
+
+.loading__circle_position_six {
+   right: var(--oneCoord);;
+   bottom: var(--anotherCoord);
+   animation-delay: calc(var(--animationDelayStep) * 6);
+ }
+
+.loading__circle_position_seven {
+   bottom: var(--quarterOneCoord);
+   left: var(--quarterAnotherCoord);;
+   animation-delay: calc(var(--animationDelayStep) * 7);
+ }
+
+.loading__circle_position_eight {
+   left: var(--oneCoord);;
+   bottom: var(--anotherCoord);
+   animation-delay: calc(var(--animationDelayStep) * 8);
+ }
+
+.loading__circle_position_nine {
+   left: var(--anotherCoord);
+   bottom: var(--oneCoord);;
+   animation-delay: calc(var(--animationDelayStep) * 9);
+ }
+
+.loading__circle_position_ten {
+   left: var(--quarterOneCoord);
+   top: var(--quarterAnotherCoord);;
+   animation-delay: calc(var(--animationDelayStep) * 10);
+ }
+
+.loading__circle_position_eleven {
+   left: var(--anotherCoord);
+   top: var(--oneCoord);
+   animation-delay: calc(var(--animationDelayStep) * 11);
+ }
+
+.loading__circle_position_twelve {
+   top: var(--anotherCoord);
+   left: var(--oneCoord);
+   animation-delay: calc(var(--animationDelayStep) * 12);
+ }
+
+
+@keyframes smallBig {
+  50% {
+    transform: scale(var(--scaleCoefficient));
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: .5;
+  }
 }

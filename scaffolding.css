@@ -1,3 +1,12 @@
+:root {
+  /* Terminal color settings*/
+  --terminalFontColor: #4AF626;
+  --terminalBgColor: #000;
+  --terminalBranchColor: #00f;
+  --terminalWayColor: yellow;
+  --terminalCommandColor: #fff;
+
+}
 body {
   box-sizing: border-box;
   font-family: 'Roboto Mono', monospace;

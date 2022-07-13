@@ -1,4 +1,5 @@
 const URL = 'https://api.github.com/repos/eugenelanets/lanets/commits';
+const TEMP_URL = 'http://localhost:3000/commits';
 const getUsefulCommitData = ({commit}) => {
   const date = new Intl.DateTimeFormat('ru-RU')
     .format(new Date(commit.author.date))
@@ -62,7 +63,7 @@ const terminal = async (elem, hiddenClass) => {
 
   const terminalNode = document.querySelector(elem);
   const loadingNode = terminalNode.querySelector(('.loading'));
-  const commitList = await getAllCommits(URL, toggleLoading);
+  const commitList = await getAllCommits(TEMP_URL, toggleLoading);
   const commitsNode = createList(commitList);
 
   const render = () => {
