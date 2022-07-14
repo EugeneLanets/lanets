@@ -32,7 +32,7 @@
 }
 
 .terminal__date {
-  color: var(--terminalBgColor);
+  color: var(--terminalFontColor);
 }
 
 .terminal__sha {
